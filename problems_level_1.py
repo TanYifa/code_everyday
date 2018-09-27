@@ -73,3 +73,12 @@ class Solution_q2(object):
             return 0
         else:
             return result
+''' 
+# 3 lines solution
+class Solution():
+    def reverse(self, x):
+        sign = [1, -1][x < 0]   # [1, -1][False] is 1, [1,-1][True] is -1
+        result = sign*int(str(abs(x))[::-1])  # Dont forget basic
+        return result if - 2**31 < result < 2**31 else 0
+ '''
+
