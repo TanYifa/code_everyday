@@ -82,3 +82,46 @@ class Solution():
         return result if - 2**31 < result < 2**31 else 0
  '''
 
+
+# Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
+
+# Example 1:
+
+# Input: 121
+# Output: true
+# Example 2:
+
+# Input: -121
+# Output: false
+# Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+# Example 3:
+
+# Input: 10
+# Output: false
+# Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
+# Follow up:
+
+# Coud you solve it without converting the integer to a string
+
+class Solution:
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        if x < 0 :
+            return False
+        elif 0 <= x < 10:
+            return True
+        else:
+            list_x = []
+            z = x
+            while z >= 10:
+                residual = z%10
+                z = int(z/10)
+                list_x.append(residual)
+            list_x.append(z)
+            return list_x[::-1] == list_x
+ 
+# the algorithm above is very slow.            
+             
