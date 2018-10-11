@@ -219,3 +219,44 @@ class Solution_Merge_Sorted_Array:
                     j -= 1
                 else:
                     break
+
+                
+                
+                
+#Example 1:
+
+# Input: haystack = "hello", needle = "ll"
+# Output: 2
+# Example 2:
+
+# Input: haystack = "aaaaa", needle = "bba"
+# Output: -1
+# Clarification:
+
+# What should we return when needle is an empty string? This is a great question to ask during an interview.
+
+# For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C's strstr() and Java's indexOf().
+
+class Solution_strStr:
+    def strStr(self, haystack, needle):
+        """
+        :type haystack: str
+        :type needle: str
+        :rtype: int
+        """
+        if needle == '':
+            return 0
+        
+        i = 0
+        while i + len(needle) <= len(haystack):
+            if haystack[i] !=  needle[0]:
+                i += 1
+            else:
+                for j,num in enumerate(needle):
+                    if haystack[i+j] != num:
+                        i += 1
+                        break
+                else:
+                    return i
+        return -1
+            
